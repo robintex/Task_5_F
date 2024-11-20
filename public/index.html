@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Bookstore</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="w-full h-screen overflow-scroll bg-slate-100">
+    <div id="app">
+        <div class="p-5 px-8 flex justify-between flex-row items-center" id="controls">
+            <div class="p-2 h-[4.5rem] px-5 pr-5 rounded-md shadow-sm flex justify-start flex-col items-start bg-white">
+                <label class="text-sm text-slate-500 font-mono font-semibold" for="language">Language:</label>
+                <select class=" shadow-sm text-md w-full border-none text-slate-800 text-md text-slate-500 font-mono font-mono flex justify-start flex-col items-start bg-slate-50 px-1  pr-20 py-1" id="language">
+                    <option value="en">English (US)</option>
+                    <option value="de">German (DE)</option>
+                    <option value="fr">French (FR)</option>
+                </select>
+            </div>
+            <div class="p-2 h-[4.5rem] px-5 pr-5 rounded-md shadow-sm flex justify-start flex-row items-center bg-white">
+                <div class=" pr-4 rounded-md flex justify-start flex-col items-start bg-white">
+                    <label class="text-sm text-slate-500 font-mono font-semibold" for="seed">Seed:</label>
+                    <input class="text-md text-slate-500 font-mono" type="text" id="seed" value="42">
+                </div>
+                <button class="text-sm text-slate-500" id="generate-seed"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                  </svg>
+                  </button>
+            </div>
+
+           <div class="p-2 h-[4.5rem] w-[15rem] px-5 pr-5 rounded-md shadow-sm flex justify-start flex-row items-center bg-white">
+               <div class="py-1 pr-10 rounded-md flex justify-start flex-col items-start bg-white">
+                <label class="text-sm text-slate-500 font-mono font-semibold" for="likes">Likes:</label>
+                <input class="text-md text-slate-500 font-mono"  type="range" id="likes" min="0" max="10" step="0.1" value="5">
+               </div>
+               <div>
+                <span id="likes-value">5</span>
+               </div>
+           </div>
+
+           <div class="p-2 h-[4.5rem] w-[15rem] px-5 pr-5 rounded-md shadow-sm flex justify-start flex-row items-center bg-white">
+            <div class="py-1 pr-5 rounded-md flex justify-start flex-col items-start bg-white">
+             <label class="text-sm text-slate-500 font-mono font-semibold" for="likes">Reviews:</label>
+             <input class="w-[12rem] border-none shadow-sm bg-slate-50 px-3 text-md text-slate-500 font-mono" type="number" id="reviews" min="0" max="10" step="0.1" value="4.7">
+            </div>
+            
+        </div>
+
+            
+
+            <button class="px-5 py-2 bg-green-400 font-mono text-slate-50 rounded-md shadow-md duration-100 hover:bg-green-500 hover:text-slate-700 text-sm" id="submit">Generate Books</button>
+        </div>
+
+
+        <div class="px-8 rounded-md"> 
+            <table class="rounded-md text-sm text-slate-500" id="books-table">
+                <thead class="px-5">
+                    <tr>
+                        <th class="font-semibold">#</th>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Author(s)</th>
+                        <th>Publisher</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="books-tbody"></tbody>
+            </table>
+        </div>
+
+        
+
+        <div id="loading">Loading more books...</div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
